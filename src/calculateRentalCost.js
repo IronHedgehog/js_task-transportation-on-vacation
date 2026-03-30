@@ -22,16 +22,24 @@
 // Implement calculateRentalCost function that returns the
 // total amount for different number of days.
 
+const COST_PER_DAY = 40;
+
+const LONG_TERM = 7;
+const DISCOUNTED_RATE_BIG = 50;
+
+const SHORT_TERM = 3;
+const DISCOUNTED_RATE_SMALL = 20;
+
 function calculateRentalCost(days) {
-  if (days >= 7) {
-    return 40 * days - 50;
+  if (days >= LONG_TERM) {
+    return COST_PER_DAY * days - DISCOUNTED_RATE_BIG;
   }
 
-  if (days >= 3) {
-    return 40 * days - 20;
+  if (days >= SHORT_TERM) {
+    return COST_PER_DAY * days - DISCOUNTED_RATE_SMALL;
   }
 
-  return days * 40;
+  return days * COST_PER_DAY;
 }
 
 calculateRentalCost(1); // 40
